@@ -1,0 +1,138 @@
+{
+    "info": {
+      "_postman_id": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6",
+      "name": "Todo API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Get All Todos",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "{{baseUrl}}/api/todos",
+            "host": ["{{baseUrl}}"],
+            "path": ["api", "todos"],
+            "query": [
+              {
+                "key": "query",
+                "value": "important",
+                "description": "Search by title",
+                "disabled": true
+              },
+              {
+                "key": "complete",
+                "value": "true",
+                "description": "Filter by completion status",
+                "disabled": true
+              }
+            ]
+          },
+          "description": "Get all todos with optional filtering"
+        },
+        "response": []
+      },
+      {
+        "name": "Get Todo by ID",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "{{baseUrl}}/api/todos/{{todoId}}",
+            "host": ["{{baseUrl}}"],
+            "path": ["api", "todos", "{{todoId}}"]
+          },
+          "description": "Get a specific todo by ID"
+        },
+        "response": []
+      },
+      {
+        "name": "Create Todo",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"title\": \"Complete project\",\n    \"description\": \"Finish the todo API implementation\"\n}"
+          },
+          "url": {
+            "raw": "{{baseUrl}}/api/todos",
+            "host": ["{{baseUrl}}"],
+            "path": ["api", "todos"]
+          },
+          "description": "Create a new todo"
+        },
+        "response": []
+      },
+      {
+        "name": "Update Todo",
+        "request": {
+          "method": "PATCH",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"title\": \"Updated title\",\n    \"description\": \"Updated description\"\n}"
+          },
+          "url": {
+            "raw": "{{baseUrl}}/api/todos/{{todoId}}",
+            "host": ["{{baseUrl}}"],
+            "path": ["api", "todos", "{{todoId}}"]
+          },
+          "description": "Update an existing todo"
+        },
+        "response": []
+      },
+      {
+        "name": "Toggle Todo Status",
+        "request": {
+          "method": "PATCH",
+          "header": [],
+          "url": {
+            "raw": "{{baseUrl}}/api/todos/status/{{todoId}}",
+            "host": ["{{baseUrl}}"],
+            "path": ["api", "todos", "status", "{{todoId}}"]
+          },
+          "description": "Toggle the completion status of a todo"
+        },
+        "response": []
+      },
+      {
+        "name": "Delete Todo",
+        "request": {
+          "method": "DELETE",
+          "header": [],
+          "url": {
+            "raw": "{{baseUrl}}/api/todos/{{todoId}}",
+            "host": ["{{baseUrl}}"],
+            "path": ["api", "todos", "{{todoId}}"]
+          },
+          "description": "Delete a todo"
+        },
+        "response": []
+      }
+    ],
+    "event": [],
+    "variable": [
+      {
+        "key": "baseUrl",
+        "value": "http://localhost:3000",
+        "type": "string"
+      },
+      {
+        "key": "todoId",
+        "value": "replace_with_actual_todo_id",
+        "type": "string"
+      }
+    ]
+  }
